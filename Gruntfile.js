@@ -48,6 +48,13 @@ module.exports = function(grunt) {
         files: ['public/src/js/**/*.js'],
         tasks: ['jshint', 'uglify']
       }
+      // livereload triggered by file update after nodemon restarts
+      // livereload: {
+      //   files: ['public/**/*.*'],
+      //   options: {
+      //     livereload: true
+      //   }
+      // }
     },
 
     // watch our node server for changes
