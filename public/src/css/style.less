@@ -15,8 +15,8 @@
 
 @primaryColor : #00CCFF;
 @secondary: #Abd5ec;
-@tertiary: orange;
-@morningbliss: orange;
+@tertiary: purple;
+@morningbliss: pink;
 @textdark: #cad1c1;
 @textlight: #fafff2;
 
@@ -26,7 +26,10 @@
     @rules();
   }
 }
-
+// Change default animation:
+// @duration (e.g 0.2s include the 's'),
+// @delay (e.g 0.2s include the 's'),
+// @it-count (numerical or use 'infinate')
 .changeAnimDefaults(@duration: 1s; @delay: 1s; @it-count: 1) {
   -moz-animation-duration: @duration;
   -moz-animation-delay: @delay;
@@ -38,6 +41,7 @@
 body {
  margin: 0;
 }
+
 // Theme
 h1 {
   color: @baseblue;
