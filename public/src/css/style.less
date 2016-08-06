@@ -1,16 +1,48 @@
 /* public/src/css/style.less */
+
+// includes
+@import "grid.less";
+@import "semantic-grid-helper.less";
+
+// variables
+// ------------------------
+@total-width: 100%;
+
+@baseblue: #0000ff;
+@basegreen: #00ff00;
+@basered: #ff0000;
+@mauve: #630537;
+
 @primaryColor : #00CCFF;
 @secondary: #Abd5ec;
 @tertiary: #c4afe2;
 @morningbliss: orange;
 
+// Mixins
+.responsive(@minWidth; @maxWidth; @rules) {
+  @media only screen and (min-width: @minWidth) and (max-width: @maxWidth) {
+    @rules();
+  }
+}
+
+// usage
 body {
  font-size: 100%;
 }
+// Theme
 h1 {
-  color: @morningbliss;
+  color: @baseblue;
+  border-bottom: 1px dotted @baseblue;
+  .responsive(481px, 768px, {
+    color: @basegreen;
+  });
+	.responsive(767px, 1024px, {
+    color: @basered;
+  });
+  .responsive(0px, 480px, {
+    color: @mauve;
+  });
 }
+
 p {color: @primaryColor;}
-h2 {
-  color: @tertiary;
-}
+h2 {color: @tertiary;}
