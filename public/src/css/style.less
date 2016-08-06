@@ -16,9 +16,9 @@
 @primaryColor : #00CCFF;
 @secondary: #Abd5ec;
 @tertiary: #c4afe2;
-@morningbliss: orange;
+@morningbliss: pink;
 @textdark: #cad1c1;
-@textlight: #f0f9e3;
+@textlight: #fafff2;
 
 // Mixins
 .responsive(@minWidth; @maxWidth; @rules) {
@@ -38,15 +38,18 @@ h1 {
   -moz-animation-duration: 0.8s;
   -moz-animation-delay: 2s;
   -moz-animation-iteration-count: 1;
-
-  .responsive(481px, 768px, {
-    color: @basegreen;
+  -moz-transition: all 1s ease-in 0.2s;
+  .responsive(1101px, 1600px, {
+    color: @tertiary;
   });
-	.responsive(767px, 1024px, {
-    color: @morningbliss;
+	.responsive(601px, 1100px, {
+    color: @tertiary;
   });
-  .responsive(0px, 480px, {
-    color: @mauve;
+  .responsive(351px, 600px, {
+    color: @textdark;
+  });
+  .responsive(0px, 350px, {
+    color: @textdark;
   });
 }
 
