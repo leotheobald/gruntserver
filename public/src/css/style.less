@@ -17,6 +17,8 @@
 @secondary: #Abd5ec;
 @tertiary: #c4afe2;
 @morningbliss: orange;
+@textdark: #cad1c1;
+@textlight: #f0f9e3;
 
 // Mixins
 .responsive(@minWidth; @maxWidth; @rules) {
@@ -33,7 +35,10 @@ body {
 // Theme
 h1 {
   color: @baseblue;
-  border-bottom: 1px dotted @baseblue;
+  -moz-animation-duration: 0.8s;
+  -moz-animation-delay: 2s;
+  -moz-animation-iteration-count: 1;
+
   .responsive(481px, 768px, {
     color: @basegreen;
   });
@@ -45,10 +50,13 @@ h1 {
   });
 }
 
+h2 {color: @tertiary;}
+p {color: @textlight;}
+
 // Base
 .col {
   &1 {
-    background-color: @mauve;
+    background-color: @tertiary;
     #grid > .setGridWidths(6, 8, 2, 3);
   }
   &2 {
@@ -71,7 +79,9 @@ h1 {
       -ms-transition: all 1s ease-in 0.2s;
        -o-transition: all 1s ease-in 0.2s;
           transition: all 1s ease-in 0.2s;
+  .inner {
+    height: 100%;
+    padding: 5px;
+    width: 100%;
+  }
 }
-
-p {color: @primaryColor;}
-h2 {color: @tertiary;}

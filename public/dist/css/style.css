@@ -17,7 +17,9 @@ body {
 }
 h1 {
   color: #0000ff;
-  border-bottom: 1px dotted #0000ff;
+  -moz-animation-duration: 0.8s;
+  -moz-animation-delay: 2s;
+  -moz-animation-iteration-count: 1;
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   h1 {
@@ -34,8 +36,14 @@ h1 {
     color: #630537;
   }
 }
+h2 {
+  color: #c4afe2;
+}
+p {
+  color: #f0f9e3;
+}
 .col1 {
-  background-color: #630537;
+  background-color: #c4afe2;
 }
 @media only screen and (min-width: 1101px) {
   .col1 {
@@ -173,9 +181,10 @@ h1 {
   -o-transition: all 1s ease-in 0.2s;
   transition: all 1s ease-in 0.2s;
 }
-p {
-  color: #00ccff;
-}
-h2 {
-  color: #c4afe2;
+.col1 .inner,
+.col2 .inner,
+.col3 .inner {
+  height: 100%;
+  padding: 5px;
+  width: 100%;
 }
