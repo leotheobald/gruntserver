@@ -27,18 +27,23 @@
   }
 }
 
+.changeAnimDefaults(@duration: 1s; @delay: 1s; @it-count: 1) {
+  -moz-animation-duration: @duration;
+  -moz-animation-delay: @delay;
+  -moz-animation-iteration-count: @it-count;
+}
+
+
 // usage
 body {
- font-size: 100%;
  margin: 0;
 }
 // Theme
 h1 {
   color: @baseblue;
-  -moz-animation-duration: 0.8s;
-  -moz-animation-delay: 2s;
-  -moz-animation-iteration-count: 1;
+  .changeAnimDefaults(0.8s,2s,1);
   -moz-transition: all 1s ease-in 0.2s;
+
   .responsive(1101px, 1600px, {
     color: @tertiary;
   });
