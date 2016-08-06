@@ -28,6 +28,7 @@
 // usage
 body {
  font-size: 100%;
+ margin: 0;
 }
 // Theme
 h1 {
@@ -42,6 +43,34 @@ h1 {
   .responsive(0px, 480px, {
     color: @mauve;
   });
+}
+
+// Base
+.col {
+  &1 {
+    background-color: @mauve;
+    #grid > .setGridWidths(6, 8, 2, 3);
+  }
+  &2 {
+    background-color: #f0f9e3;
+    #grid > .setGridWidths(6, 2, 4, 5);
+  }
+  &3 {
+    background-color: #cad1c1;
+    #grid > .setGridWidths(12, 2, 6, 8);
+  }
+}
+
+// Animate column width changes across breakpoints
+.col1,
+.col2,
+.col3 {
+  height: 300px;
+  -webkit-transition: all 1s ease-in 0.2s;
+     -moz-transition: all 1s ease-in 0.2s;
+      -ms-transition: all 1s ease-in 0.2s;
+       -o-transition: all 1s ease-in 0.2s;
+          transition: all 1s ease-in 0.2s;
 }
 
 p {color: @primaryColor;}
