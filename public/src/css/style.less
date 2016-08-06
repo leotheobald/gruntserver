@@ -15,8 +15,10 @@
 
 @primaryColor : #00CCFF;
 @secondary: #Abd5ec;
-@tertiary: #c4afe2;
-@morningbliss: orange;
+@tertiary: purple;
+@morningbliss: pink;
+@textdark: #cad1c1;
+@textlight: #fafff2;
 
 // Mixins
 .responsive(@minWidth; @maxWidth; @rules) {
@@ -24,31 +26,49 @@
     @rules();
   }
 }
+// Change default animation:
+// @duration (e.g 0.2s include the 's'),
+// @delay (e.g 0.2s include the 's'),
+// @it-count (numerical or use 'infinate')
+.changeAnimDefaults(@duration: 1s; @delay: 1s; @it-count: 1) {
+  -moz-animation-duration: @duration;
+  -moz-animation-delay: @delay;
+  -moz-animation-iteration-count: @it-count;
+}
+
 
 // usage
 body {
- font-size: 100%;
  margin: 0;
 }
+
 // Theme
 h1 {
   color: @baseblue;
-  border-bottom: 1px dotted @baseblue;
-  .responsive(481px, 768px, {
-    color: @basegreen;
+  .changeAnimDefaults(0.8s,2s,1);
+  -moz-transition: all 1s ease-in 0.2s;
+
+  .responsive(1101px, 1600px, {
+    color: @tertiary;
   });
-	.responsive(767px, 1024px, {
-    color: @basered;
+	.responsive(601px, 1100px, {
+    color: @tertiary;
   });
-  .responsive(0px, 480px, {
-    color: @mauve;
+  .responsive(351px, 600px, {
+    color: @textdark;
+  });
+  .responsive(0px, 350px, {
+    color: @textdark;
   });
 }
+
+h2 {color: @tertiary;}
+p {color: @textlight;}
 
 // Base
 .col {
   &1 {
-    background-color: @mauve;
+    background-color: @tertiary;
     #grid > .setGridWidths(6, 8, 2, 3);
   }
   &2 {
@@ -71,7 +91,9 @@ h1 {
       -ms-transition: all 1s ease-in 0.2s;
        -o-transition: all 1s ease-in 0.2s;
           transition: all 1s ease-in 0.2s;
+  .inner {
+    height: 100%;
+    padding: 5px;
+    width: 100%;
+  }
 }
-
-p {color: @primaryColor;}
-h2 {color: @tertiary;}
