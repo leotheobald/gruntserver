@@ -36,6 +36,14 @@ module.exports = function(grunt) {
         }
       }
     },
+    htmlmin: {
+      build: {
+        files: {
+          'public/dist/index.min.html': 'public/dist/index.html'
+        }
+      }
+    },
+    
 
     // COOL TASKS =======================================
     // watch css and js files and process the above tasks
@@ -48,6 +56,25 @@ module.exports = function(grunt) {
         files: ['public/src/js/**/*.js'],
         tasks: ['jshint', 'uglify']
       },
+      
+      htmlmin: {                                     // Task
+        dist: {                                      // Target
+          options: {                                 // Target options
+            removeComments: true,
+            collapseWhitespace: true
+          },
+          files: {                                   // Dictionary of files
+            'dist/index.html': 'src/index.html' ,    // 'destination': 'source'
+            'dist/contact.html': 'src/contact.html'
+          }
+        },
+        dev: {                                       // Another target
+          files: {
+            'dist/index.html': 'src/index.html',
+            'dist/contact.html': 'src/contact.html'
+          }
+        }
+      }
       // reload the dom after nodemon restarts.
       livereload: {
         files: ['public/dist/**/*.*'],
@@ -81,7 +108,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  
 
-  grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'uglify', 'concurrent']);
+  grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'uglify', 'concurrent', 'htmlmin']);
 
 };
