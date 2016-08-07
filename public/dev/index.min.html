@@ -10,12 +10,22 @@
 </head>
 <body ng-app="gruntApp" ng-controller="mainController">
 
-  <h1>{{ heading }} update </h1>
-  <h2>Yay: dude abc123456 </h2>
-  <p>{{ message }} </p>
-  <div class="col1">aa</div>
-  <div class="col2"></div>
-  <div class="col3"></div>
+  <h1>Scope heading: {{ heading }}</h1>
+  <h2>An H2 tag</h2>
+  <p> </p>
+  <div class="col1">
+      <ul>
+        <li ng-repeat="item in data"> {{item.name}}</li>
+      </ul>
+  </div>
+  <div class="col2">
+    Scope message: "{{ message }}"
+  </div>
+  <div class="col3">
+      <ul>
+        <li ng-repeat="item in data">{{item.arrival}}</li>
+      </ul>
+  </div>
   
   <script src="http://localhost:35729/livereload.js?snipver=1"></script>
 

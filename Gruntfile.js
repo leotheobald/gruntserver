@@ -46,7 +46,7 @@ module.exports = function(grunt) {
             'public/dist/index.min.html': 'public/index.html'     // 'destination': 'source'
           }
         },
-        dev: {                                       // Another target
+        dev: {                                       // Another target 
           files: {
             'public/dev/index.min.html': 'public/index.html'
           }
