@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       all: ['public/src/js/**/*.js']
     },
 
-    // take all the js files and minify them into app.min.js
+    // take all the src js files and minify them into dist/js/app.min.js
     uglify: {
       build: {
         files: {
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     },
 
     // CSS TASKS ========================
-    // process the less file to style.css
+    // process the less file to dist/css/style.css
     less: {
       build: {
         files: {
@@ -36,17 +36,25 @@ module.exports = function(grunt) {
         }
       }
     },
-    htmlmin: {
-      build: {
-        files: {
-          'public/dist/index.min.html': 'public/dist/index.html'
+    htmlmin: {                                     // Task
+        dist: {                                      // Target
+          options: {                                 // Target options
+            removeComments: true,
+            collapseWhitespace: true
+          },
+          files: {                                   // Dictionary of files
+            'public/dist/index.min.html': 'public/index.html'     // 'destination': 'source'
+          }
+        },
+        dev: {                                       // Another target
+          files: {
+            'public/dev/index.min.html': 'public/index.html'
+          }
         }
-      }
     },
-    
 
     // COOL TASKS =======================================
-    // watch css and js files and process the above tasks
+    // watch css and js files and process the above tasks 
     watch: {
       css: {
         files: ['public/src/css/**/*.less'],
@@ -56,25 +64,10 @@ module.exports = function(grunt) {
         files: ['public/src/js/**/*.js'],
         tasks: ['jshint', 'uglify']
       },
-      
-      htmlmin: {                                     // Task
-        dist: {                                      // Target
-          options: {                                 // Target options
-            removeComments: true,
-            collapseWhitespace: true
-          },
-          files: {                                   // Dictionary of files
-            'dist/index.html': 'src/index.html' ,    // 'destination': 'source'
-            'dist/contact.html': 'src/contact.html'
-          }
-        },
-        dev: {                                       // Another target
-          files: {
-            'dist/index.html': 'src/index.html',
-            'dist/contact.html': 'src/contact.html'
-          }
-        }
-      }
+      htmlmin: {
+        files: ['public/index.html'],
+        tasks: ['htmlmin']
+      },
       // reload the dom after nodemon restarts.
       livereload: {
         files: ['public/dist/**/*.*'],
@@ -109,7 +102,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  
 
   grunt.registerTask('default', ['less', 'cssmin', 'jshint', 'uglify', 'concurrent', 'htmlmin']);
 
