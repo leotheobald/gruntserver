@@ -3,8 +3,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Grunt for MEAN!</title>
+  <title>Grunty</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
   <link rel="stylesheet" href="dist/css/style.min.css">
+  
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
   <script src="dist/js/app.min.js"></script>
 </head>
@@ -15,7 +17,10 @@
   <p> </p>
   <div class="col1">
       <ul>
-        <li ng-repeat="item in data"> {{item.name}}</li>
+        <li ng-repeat="item in data">
+            <i class="fa {{item.mode}}"></i> 
+            {{item.mode}} {{item.name}}
+        </li>
       </ul>
   </div>
   <div class="col2">
@@ -23,7 +28,7 @@
   </div>
   <div class="col3">
       <ul>
-        <li ng-repeat="item in data">{{item.arrival}}</li>
+        <li ng-repeat="item in data">{{item.name}} {{item.document}} {{ item.documentID }}</li>
       </ul>
   </div>
   
