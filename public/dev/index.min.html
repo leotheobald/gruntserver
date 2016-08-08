@@ -12,13 +12,13 @@
 </head>
 <body ng-app="gruntApp" ng-controller="mainController">
 
-  <h1>Scope heading: {{ heading }}</h1>
-  <h2>An H2 tag</h2>
+  <h1>H1 tag: {{ heading }}</h1>
+  <h2>H2 tag</h2>
   <p> </p>
   <div class="col1">
       <ul>
         <li ng-repeat="item in data">
-            <i class="fa {{item.mode}}"></i> 
+            <i class="fa fa-{{item.mode}}"></i> 
             {{item.mode}} {{item.name}}
         </li>
       </ul>
